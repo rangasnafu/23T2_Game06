@@ -24,7 +24,7 @@ public class Draggable : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (isDraggable)
+        if (isDraggable && ShouldBeDraggable())
         {
             transform.position = GetMouseWorldPosition() + mousePositionOffset;
         }
@@ -32,7 +32,12 @@ public class Draggable : MonoBehaviour
 
     private bool ShouldBeDraggable()
     {
-        return gameObject.GetComponent<SpriteRenderer>().sprite.name == "objects_1";
-        //return true; // Change this to your specific condition
+        if (gameObject.GetComponent<SpriteRenderer>() != null)
+        {
+            string spriteName = gameObject.GetComponent<SpriteRenderer>().sprite.name;
+            return spriteName == "objects_1";
+        }
+
+        return false;
     }
 }
