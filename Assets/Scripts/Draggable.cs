@@ -5,6 +5,7 @@ using UnityEngine;
 public class Draggable : MonoBehaviour
 {
     Vector3 mousePositionOffset;
+    bool isDraggable = false;
 
     private Vector3 GetMouseWorldPosition()
     {
@@ -13,11 +14,25 @@ public class Draggable : MonoBehaviour
 
     private void OnMouseDown()
     {
-        mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
+        // Add your condition here to determine if the object should be draggable
+        if (ShouldBeDraggable())
+        {
+            isDraggable = true;
+            mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
+        }
     }
 
     private void OnMouseDrag()
     {
-        transform.position = GetMouseWorldPosition() + mousePositionOffset;
+        if (isDraggable)
+        {
+            transform.position = GetMouseWorldPosition() + mousePositionOffset;
+        }
+    }
+
+    private bool ShouldBeDraggable()
+    {
+        return gameObject.GetComponent<SpriteRenderer>().sprite.name == "objects_1";
+        //return true; // Change this to your specific condition
     }
 }

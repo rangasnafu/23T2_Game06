@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Ability : MonoBehaviour
 {
-    public GameObject box;
-    public GameObject box2;
-    public GameObject interactiveboxPrefab;
+    //public GameObject box;
+    //public GameObject box2;
+    //public GameObject interactiveboxPrefab;
     
     public GameObject aura;
 
@@ -26,17 +26,17 @@ public class Ability : MonoBehaviour
 
         if (currentTime < 0)
         {
-            box.SetActive(true);
             aura.SetActive(false);
-            box2.SetActive(true);
-            Destroy(interactiveboxPrefab);
+            //box.SetActive(true);
+            //box2.SetActive(true);
+            //Destroy(interactiveboxPrefab);
         }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            box.SetActive(false);
-            box2.SetActive(false);
-            Instantiate(interactiveboxPrefab, box.transform.position, Quaternion.identity);
+            //box.SetActive(false);
+            //box2.SetActive(false);
+            //Instantiate(interactiveboxPrefab, box.transform.position, Quaternion.identity);
             aura.SetActive(true);
 
             currentTime = 5f;
