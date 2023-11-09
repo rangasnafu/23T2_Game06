@@ -10,6 +10,7 @@ public class Ability : MonoBehaviour
     //public GameObject interactiveboxPrefab;
     
     public GameObject aura;
+    public GameObject buttonUI;
 
     float currentTime = 0f;
     float startingTime = 0f;
@@ -31,6 +32,7 @@ public class Ability : MonoBehaviour
         if (currentTime < 0)
         {
             aura.SetActive(false);
+            buttonUI.SetActive(false);
             //box.SetActive(true);
             //box2.SetActive(true);
             //Destroy(interactiveboxPrefab);
@@ -42,6 +44,7 @@ public class Ability : MonoBehaviour
             //box2.SetActive(false);
             //Instantiate(interactiveboxPrefab, box.transform.position, Quaternion.identity);
             aura.SetActive(true);
+            buttonUI.SetActive(true);
 
             currentTime = 5f;
             abilityCountdownTimer = abilityCountdownInterval;
