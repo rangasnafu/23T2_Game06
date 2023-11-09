@@ -19,6 +19,9 @@ public class ChangeSprite : MonoBehaviour
     float startingTime = 0f;
     bool isColorChanged = false;
 
+    public float abilityCountdownInterval;
+    private float abilityCountdownTimer;
+
     private void Start()
     {
         currentTime = startingTime;
@@ -37,11 +40,14 @@ public class ChangeSprite : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        abilityCountdownTimer -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.F) & abilityCountdownTimer <= 0)
         {
             ChangeToNewSpriteAndColour();
             currentTime = 5f;
             isColorChanged = true;
+            abilityCountdownTimer = abilityCountdownInterval;
         }
 
         if (currentTime < 0)

@@ -70,27 +70,5 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("SideCollision"))
-    //    {
-    //        PlayerLives playerLives = GetComponent<PlayerLives>();
-
-    //        playerLives.LoseALife();
-
-    //        animator.SetTrigger("Death");
-
-    //        rb.simulated = false;
-
-    //        soundManager.PlayerDeathSound();
-
-    //        StartCoroutine(ReloadSceneAfterDelay(deathDelay));
-    //    }
-    //}
-
-    //private IEnumerator ReloadSceneAfterDelay(float delay)
-    //{
-    //    yield return new WaitForSeconds(delay);
-    //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    //}
+    
 }

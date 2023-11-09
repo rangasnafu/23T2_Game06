@@ -31,8 +31,8 @@ public class Follow : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            target = GameObject.FindGameObjectWithTag("AbilityFollow").GetComponent<Transform>();
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            //target = GameObject.FindGameObjectWithTag("AbilityFollow").GetComponent<Transform>();
+            //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             currentTime = 5;
         }
     }

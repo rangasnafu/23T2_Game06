@@ -14,6 +14,9 @@ public class Ability : MonoBehaviour
     float currentTime = 0f;
     float startingTime = 0f;
 
+    public float abilityCountdownInterval;
+    private float abilityCountdownTimer;
+
     void Start()
     {
         currentTime = startingTime;
@@ -23,6 +26,7 @@ public class Ability : MonoBehaviour
     void Update()
     {
         currentTime -= Time.deltaTime;
+        abilityCountdownTimer -= Time.deltaTime;
 
         if (currentTime < 0)
         {
@@ -32,7 +36,7 @@ public class Ability : MonoBehaviour
             //Destroy(interactiveboxPrefab);
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && abilityCountdownTimer <= 0)
         {
             //box.SetActive(false);
             //box2.SetActive(false);
@@ -40,6 +44,7 @@ public class Ability : MonoBehaviour
             aura.SetActive(true);
 
             currentTime = 5f;
+            abilityCountdownTimer = abilityCountdownInterval;
         }
     }
 }
