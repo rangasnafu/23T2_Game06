@@ -13,7 +13,10 @@ public class Buttons : MonoBehaviour
     public GameObject doorToDeactivate;
     public GameObject explosionEffect;
 
+    public GameObject doorToDelete;
+
     private bool doorDeactivated = false;
+    private bool doorDeleted = false;
 
     void Start()
     {
@@ -42,6 +45,17 @@ public class Buttons : MonoBehaviour
         }
     }
 
+    public void DeleteDoor()
+    {
+        Debug.Log("pressed button");
+        if (doorToDelete != null && !doorDeleted)
+        {
+            Vector3 doorPosition = doorToDelete.transform.position;
+
+            StartCoroutine(DeleteAndExplode());
+        }
+    }
+
     private IEnumerator DeactivateAndExplode()
     {
         yield return new WaitForSeconds(1.0f); // Wait for 1 second
@@ -52,6 +66,19 @@ public class Buttons : MonoBehaviour
         if (explosionEffect != null)
         {
             Instantiate(explosionEffect, doorToDeactivate.transform.position, Quaternion.identity);
+        }
+    }
+
+    private IEnumerator DeleteAndExplode()
+    {
+        yield return new WaitForSeconds(1.0f); // Wait for 1 second
+
+        Destroy(doorToDelete);
+        doorDeleted = true;
+
+        if (explosionEffect != null)
+        {
+            Instantiate(explosionEffect, doorToDelete.transform.position, Quaternion.identity);
         }
     }
 

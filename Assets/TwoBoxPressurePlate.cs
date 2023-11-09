@@ -19,7 +19,7 @@ public class TwoBoxPressurePlate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Box1"))
+        if (other.CompareTag("Box"))
         {
             box1Inside = true;
             TryOpenDoor();
@@ -33,7 +33,7 @@ public class TwoBoxPressurePlate : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Box1"))
+        if (other.CompareTag("Box"))
         {
             box1Inside = false;
         }
