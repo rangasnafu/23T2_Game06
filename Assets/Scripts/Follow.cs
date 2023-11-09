@@ -10,6 +10,9 @@ public class Follow : MonoBehaviour
     //float currentTime = 0f;
     //float startingTime = 0f;
 
+    private float horizontal;
+    private bool isFacingRight = true;
+
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("FollowPoint").GetComponent<Transform>();
@@ -19,6 +22,9 @@ public class Follow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        horizontal = Input.GetAxisRaw("Horizontal");
+        Flip();
+
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
         //currentTime -= Time.deltaTime;
@@ -35,5 +41,16 @@ public class Follow : MonoBehaviour
         //    //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         //    currentTime = 5;
         //}
+    }
+
+    private void Flip()
+    {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
     }
 }

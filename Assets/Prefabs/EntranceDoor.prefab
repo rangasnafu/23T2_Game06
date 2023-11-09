@@ -141,9 +141,8 @@ GameObject:
   - component: {fileID: 6212400057769638714}
   - component: {fileID: 3624752437691577356}
   - component: {fileID: 5081786020735644407}
-  - component: {fileID: -6305471973782595514}
   m_Layer: 0
-  m_Name: LevelDoor
+  m_Name: EntranceDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,17 +261,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-6305471973782595514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8442656353927016879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ac6adb53c6e6334893410c8374ab38d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextLevelName: 
-  delayBeforeLoad: 1
