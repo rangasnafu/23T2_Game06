@@ -4,10 +4,32 @@ using UnityEngine;
 
 public class Buttons : MonoBehaviour
 {
+    float currentTime = 0f;
+    float startingTime = 0f;
+
+    public GameObject bridgeObject;
+    //public GameObject revealEffect;
+
     public GameObject doorToDeactivate;
     public GameObject explosionEffect;
 
     private bool doorDeactivated = false;
+
+    void Start()
+    {
+        currentTime = startingTime;
+    }
+
+    void Update()
+    {
+        currentTime -= Time.deltaTime;
+
+        if (currentTime < 0)
+        {
+            bridgeObject.SetActive(false);
+            //Instantiate(explosionEffect, bridgeObject.transform.position, Quaternion.identity);
+        }
+    }
 
     public void BreakDoor()
     {
@@ -31,5 +53,12 @@ public class Buttons : MonoBehaviour
         {
             Instantiate(explosionEffect, doorToDeactivate.transform.position, Quaternion.identity);
         }
+    }
+
+    public void RevealBridge()
+    {
+        bridgeObject.SetActive(true);
+        currentTime = 3f;
+        //Instantiate(revealEffect, bridgeObject.transform.position, Quaternion.identity);
     }
 }
