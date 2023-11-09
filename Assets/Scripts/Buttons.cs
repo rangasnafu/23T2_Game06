@@ -11,7 +11,7 @@ public class Buttons : MonoBehaviour
 
     public void BreakDoor()
     {
-        Debug.Log("box on pressure plate");
+        Debug.Log("pressed button");
         if (doorToDeactivate != null && !doorDeactivated)
         {
             Vector3 doorPosition = doorToDeactivate.transform.position;
