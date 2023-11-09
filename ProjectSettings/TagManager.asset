@@ -6,6 +6,8 @@ TagManager:
   tags:
   - FollowPoint
   - Box
+  - MouseCursor
+  - Ability Follow
   layers:
   - Default
   - TransparentFX
